@@ -8,15 +8,15 @@ export default function Detail() {
   console.log("router", router.query.name);
   const [detail, setDetail] = useState<IItem>();
 
-  const fetchDetail = async () => {
-    const res = await fetch(`/api/detail?name=${router.query.name}`).then((res) => res.json());
+  const fetchDetail = async (name) => {
+    const res = await fetch(`/api/detail?name=${name}`).then((res) => res.json());
     console.log("fetch", res);
     setDetail(res.detail);
   };
 
   useEffect(() => {
     if (router.query.name) {
-      fetchDetail();
+      fetchDetail(router.query.name);
     }
   }, [router.query.name]);
 
