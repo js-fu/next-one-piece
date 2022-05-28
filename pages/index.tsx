@@ -4,13 +4,14 @@ import Link from "next/link";
 import { fetchList } from "../mock/api";
 import { IItem } from "../types/item";
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const list = await fetchList();
 
   return {
     props: {
       list,
     }, // will be passed to the page component as props
+    revalidate: 10,
   };
 }
 
