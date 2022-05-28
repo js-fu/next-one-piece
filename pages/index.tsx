@@ -36,10 +36,10 @@ export default function Home({ list }: IHomeProps) {
                 return (
                   <li className="flex items-center" key={i}>
                     <div className="mr-[16px]">
-                      <Image src={item.img} alt={item.nameCn} width={300} height={300} objectFit="contain" />
+                      <Image src={item.img} alt={item.nameCn} width={200} height={200} objectFit="contain" />
                     </div>
                     <div>
-                      <div>名字：{item.nameCn}</div>
+                      <div className="mb-[16px] text-xl">{item.nameCn}</div>
                       <Link href={`/csr/detail/${item.name}`} passHref>
                         <a target="_blank">
                           <div>to CSR detail</div>

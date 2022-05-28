@@ -6,11 +6,11 @@ import { fetchDetail } from "../../../mock/api";
 export async function getServerSideProps(context) {
   console.log("context", context.query);
 
-  const detail = await fetchDetail({ name: context.query.name });
+  const res = await fetchDetail({ name: context.query.name });
 
   return {
     props: {
-      detail,
+      detail: res.detail,
     }, // will be passed to the page component as props
   };
 }

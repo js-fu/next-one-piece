@@ -9,7 +9,7 @@ export const fetchList = (): Promise<IItem[]> => {
   });
 };
 
-export const fetchDetail = async ({ name }): Promise<IItem> => {
+export const fetchDetail = async ({ name }): Promise<{ detail: IItem }> => {
   const list = await fetchList();
-  return list.find((item) => item.name === name);
+  return { detail: list.find((item) => item.name === name) };
 };
