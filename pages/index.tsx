@@ -30,19 +30,33 @@ export default function Home({ list }: IHomeProps) {
       </Head>
       <div>
         <div>
-          <div>to csr detail</div>
-          <ul className="flex w-full">
+          <ul className="">
             {Array.isArray(list) &&
               list.map((item, i) => {
                 return (
-                  <Link key={i} href={`/csr/detail/${item.name}`} passHref>
-                    <a target="_blank" className="flex justify-center">
-                      <li className="w-1/3">
-                        <Image src={item.img} alt={item.nameCn} width={300} height={300} objectFit="contain" />
-                        <div>名字：{item.nameCn}</div>
-                      </li>
-                    </a>
-                  </Link>
+                  <li className="flex items-center" key={i}>
+                    <div className="mr-[16px]">
+                      <Image src={item.img} alt={item.nameCn} width={300} height={300} objectFit="contain" />
+                    </div>
+                    <div>
+                      <div>名字：{item.nameCn}</div>
+                      <Link href={`/csr/detail/${item.name}`} passHref>
+                        <a target="_blank">
+                          <div>to CSR detail</div>
+                        </a>
+                      </Link>
+                      <Link href={`/ssr/detail/${item.name}`} passHref>
+                        <a target="_blank">
+                          <div>to SSR detail</div>
+                        </a>
+                      </Link>
+                      <Link href={`/ssg/detail/${item.name}`} passHref>
+                        <a target="_blank">
+                          <div>to SSG detail</div>
+                        </a>
+                      </Link>
+                    </div>
+                  </li>
                 );
               })}
           </ul>
