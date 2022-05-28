@@ -20,7 +20,7 @@ export default function Detail({ detail }) {
   console.log("router", router.query.name);
 
   if (!detail) {
-    return null;
+    return <div>{router.query.name} not found</div>;
   }
 
   return (

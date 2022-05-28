@@ -3,4 +3,5 @@ export interface IItem {
   nameCn: string;
   img: string;
   devilFruit: string;
+  deleted?: boolean;
 }

@@ -12,7 +12,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      detail: res.detail,
+      detail: res.detail || null,
     },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
@@ -35,7 +35,11 @@ export async function getStaticPaths() {
   // We'll pre-render only these paths at build time.
   // { fallback: blocking } will server-render pages
   // on-demand if the path doesn't exist.
-  return { paths, fallback: "blocking" };
+  return {
+    paths,
+    fallback: "blocking",
+    // fallback: true,
+  };
 }
 
 export default function Detail({ detail }) {
@@ -43,7 +47,7 @@ export default function Detail({ detail }) {
   console.log("router", router.query.name);
 
   if (!detail) {
-    return null;
+    return <div>{router.query.name} not found</div>;
   }
 
   return (
