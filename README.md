@@ -10,7 +10,7 @@ yarn dev
 npm run dev
 ```
 
-体验 SSG 使用以下命令
+体验 SSG、ISG 使用以下命令，修改mock接口数据
 
 ```bash
 yarn build && yarn start
